@@ -15,28 +15,24 @@ const courseSchema = new mongoose.Schema(
 
     // TODO 2: description (String, obligatorio, de 10 a 500 caracteres).
 
-     description: {
+    description: {
       type: String,
       required: true,
       minlength: 10,
       maxlength: 500,
     },
 
-
     // TODO 3: level (String, valores permitidos: ["beginner", "intermediate", "advanced"]; por defecto "beginner").
 
-    
     level: {
       type: String,
       enum: ["beginner", "intermediate", "advanced"],
       default: "beginner",
     },
 
-
-
     // TODO 4: price (Number, mínimo 0, por defecto 0).
 
-     price: {
+    price: {
       type: Number,
       min: 1,
       default: "beginner",
@@ -48,7 +44,7 @@ const courseSchema = new mongoose.Schema(
     //   - startTime: Date, obligatorio.
     //   - endTime: Date, obligatorio.
 
-     schedule: {
+    schedule: {
       day: {
         type: String,
         required: true,
@@ -66,28 +62,24 @@ const courseSchema = new mongoose.Schema(
       },
     },
 
-
     // TODO 6: teacher (ObjectId, obligatorio, referencia al modelo User).
 
-     teacher: {
-      type: Types.ObjectId,
+    teacher: {
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
 
-
     // TODO 7: topics (array de ObjectId con referencia al modelo Topic).
 
-     topics: [
+    topics: [
       {
-        type: Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Topic",
       },
     ],
-    },
-  
+  },
 
-  
   { timestamps: true, versionKey: false },
 );
 

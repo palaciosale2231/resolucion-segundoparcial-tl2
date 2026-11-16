@@ -99,6 +99,8 @@ export const remove = async (req, res) => {
 
     // TODO 1: eliminación en cascada, de forma manual: al eliminar un Topic, quitarlo del array topics de todos los cursos que lo referencian. Se busca la lista de cursos que contienen el tópico, se recorre con un bucle, a cada curso se le quita el tópico de su array topics (reasignando el array sin ese id) y se guarda el curso.
 
+    await Course.updateMany({ topics: id }, { pull: { topics: id } });
+
     return res
       .status(200)
       .json({ message: "Tópico eliminado correctamente", data: null });

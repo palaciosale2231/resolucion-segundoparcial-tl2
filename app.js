@@ -7,7 +7,7 @@ import topicsRoutes from "./src/routes/topics.routes.js";
 import coursesRoutes from "./src/routes/courses.routes.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3009;
 
 app.use(cors());
 app.use(express.json());
